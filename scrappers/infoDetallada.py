@@ -31,7 +31,7 @@ def parse(soup):
 	elements = p + h3
 	for element in elements:
 		text = element.text.strip()
-		if(text != ""):
+		if(text != "" and text[-1:] != ":"):
 			info.append(re.sub('\s+', ' ', text))		
 	return info
 

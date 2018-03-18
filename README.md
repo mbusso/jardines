@@ -23,3 +23,9 @@ remap = {
 >>> a = s.translate(remap)
 
 https://github.com/LuminosoInsight/python-ftfy
+
+TODO:
+Limpiar info detallada
+Borrar info que no sirve
+Determinar los tags de busqueda
+Guardar en bd
