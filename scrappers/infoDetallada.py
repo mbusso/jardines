@@ -12,7 +12,7 @@ def main():
 	info = []
 	for jardin in jardines:
 		info.append(getAdditionalInfo(jardin))
-	files.save_as_json('jardinesInfoDetallada.json', info)
+	files.save_as_json_2('jardinesInfoDetallada.json', info)
 
 
 def getAdditionalInfo(jardin):
@@ -30,10 +30,10 @@ def parse(soup):
 	h3 = div.find_all("h3")
 	elements = p + h3
 	for element in elements:
-		text = element.text.strip()
+		text = element.getText().strip()
 		if(text != "" and text[-1:] != ":"):
 			info.append(re.sub('\s+', ' ', text))		
-	return info
+	return info[0:len(info) -1]
 
 if __name__ == "__main__":
     main()

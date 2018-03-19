@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 
 def get_content(url):
 	r  = requests.get(url)
-	r.encoding = 'utf-8'
-	return r.text.encode('utf-8')
+	#r.encoding = 'utf-8'
+	return r.text
 
 def get_content_with_iso_enconding(url):
 	r  = requests.get(url)
