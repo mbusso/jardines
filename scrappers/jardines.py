@@ -7,12 +7,13 @@ from modules import request
 from modules import files
 
 def main():
-	soup = request.get_content_parsed("https://guia-capital-federal.escuelasyjardines.com.ar/guia-jardines-de-infantes-en-capital-federal-belgrano.htm")
-	jardines = parseJardines(soup)
-	paginas = parsePaginator(soup)
 	data = {}
-	data["jardines"] = jardines
+	soup = request.get_content_parsed("https://guia-capital-federal.escuelasyjardines.com.ar/guia-jardines-de-infantes-en-capital-federal-belgrano.htm")
+	paginas = parsePaginator(soup)
+	data["jardines"] = parseJardines(soup)
 	data["paginas"] = paginas
+	for pagina in paginas:
+		data["jardines"] = data["jardines"] + parseJardinesPerPage(pagina)
 	files.save_as_json_2('jardines.json', data)
 
 def parseJardines(soup):
@@ -27,6 +28,10 @@ def parseJardines(soup):
 			data["info"] = re.sub('\s+', ' ', child.find("p").text)
 			jardines.append(data)
 	return jardines
+
+def parseJardinesPerPage(pagina):
+	soup = request.get_content_parsed(pagina)
+	return parseJardines(soup)
 
 def parsePaginator(soup):
 	paginas = []
