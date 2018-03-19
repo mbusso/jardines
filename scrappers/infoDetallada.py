@@ -3,6 +3,7 @@ from os import path
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 
 import re
+import time
 from modules import request
 from modules import files
 
@@ -12,6 +13,7 @@ def main():
 	info = []
 	for jardin in jardines:
 		info.append(getAdditionalInfo(jardin))
+		time.sleep(5)
 	files.save_as_json_2('jardinesInfoDetallada.json', info)
 
 
