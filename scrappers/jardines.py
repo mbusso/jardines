@@ -2,6 +2,7 @@ import sys
 from os import path
 sys.path.append( path.dirname( path.dirname( path.abspath(__file__) ) ) )
 
+import re
 from modules import request
 from modules import files
 
@@ -12,7 +13,7 @@ def main():
 	data = {}
 	data["jardines"] = jardines
 	data["paginas"] = paginas
-	files.save_as_json('jardines.json', data)
+	files.save_as_json_2('jardines.json', data)
 
 def parseJardines(soup):
 	jardines = []
@@ -23,7 +24,7 @@ def parseJardines(soup):
 		if(anchor):
 			data["additionalInfo"] = anchor["href"]
 			data["nombre"] = anchor.text
-			data["info"] = child.find("p").text #clean
+			data["info"] = re.sub('\s+', ' ', child.find("p").text)
 			jardines.append(data)
 	return jardines
 

@@ -10,6 +10,7 @@ http://www.buenosaires.gob.ar/areas/educacion/establecimientos/index.php?
 
 
 TEXT SANITIZING
+
 strip()
 import re
 re.sub('\s+', ' ', s)
@@ -25,7 +26,14 @@ remap = {
 https://github.com/LuminosoInsight/python-ftfy
 
 TODO:
-Limpiar info detallada
-Borrar info que no sirve
 Determinar los tags de busqueda
 Guardar en bd
+
+Categorias:
+Publico/Privado
+Laico
+Mixto
+Bilingue
+Urbano??
+Doble turno
+Colegio de integración?
