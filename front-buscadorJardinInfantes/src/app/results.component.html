@@ -1,3 +1,20 @@
-<h1>
-    Resultados
-</h1>
+<h2>Resultados</h2>
+
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Direccion</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let jardin of jardines">
+                <td>{{jardin.nombre}}</td>
+                <td>{{jardin.direccion}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

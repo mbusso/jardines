@@ -8,12 +8,5 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-  searchValue: string
-
-  constructor(private router: Router) {}
-
-
-  buscar() {
-    this.router.navigate(['results'])
-  }
+ 
 }

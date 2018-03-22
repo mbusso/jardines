@@ -7,12 +7,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ResultsComponent } from './results.component';
 import { AppComponent } from './app.component';
-
+import { BuscadorComponent } from '../buscador/buscador.component';
+import { JardinService } from './jardines.service';
 
 const routes: Routes = [
   {
     path: '', component: AppComponent, children: [
-      { path: 'results', component: ResultsComponent }]
+      { path: 'buscador', component: BuscadorComponent },
+      { path: 'resultados', component: ResultsComponent }
+    ]
   }
 ];
 
@@ -20,6 +23,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    BuscadorComponent,
     ResultsComponent
   ],
   imports: [
@@ -27,7 +31,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [JardinService],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })
