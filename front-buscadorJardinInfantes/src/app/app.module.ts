@@ -16,9 +16,7 @@ const routes: Routes = [
   {
     path: '', component: AppComponent, children: [
       { path: 'buscador', component: BuscadorComponent },
-      { path: 'resultados', component: ResultsComponent },
       { path: 'busqueda-avanzada', component: BusquedaAvanzadaComponent },
-
     ]
   }
 ];
