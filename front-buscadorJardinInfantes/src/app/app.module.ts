@@ -5,16 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 
-import { ResultsComponent } from './results.component';
+import { ResultsComponent } from './resultados/results.component';
 import { AppComponent } from './app.component';
-import { BuscadorComponent } from '../buscador/buscador.component';
-import { JardinService } from './jardines.service';
+import { BuscadorComponent } from './buscador/buscador.component';
+import { JardinService } from './resultados/jardines.service';
+import { BusquedaAvanzadaComponent } from './busqueda-avanzada/busqueda-avanzada.component';
+import { FiltrosService } from './busqueda-avanzada/filtros.service';
 
 const routes: Routes = [
   {
     path: '', component: AppComponent, children: [
       { path: 'buscador', component: BuscadorComponent },
-      { path: 'resultados', component: ResultsComponent }
+      { path: 'resultados', component: ResultsComponent },
+      { path: 'busqueda-avanzada', component: BusquedaAvanzadaComponent },
+
     ]
   }
 ];
@@ -24,14 +28,15 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     BuscadorComponent,
-    ResultsComponent
+    ResultsComponent,
+    BusquedaAvanzadaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [JardinService],
+  providers: [JardinService, FiltrosService],
   bootstrap: [AppComponent],
   exports: [RouterModule]
 })

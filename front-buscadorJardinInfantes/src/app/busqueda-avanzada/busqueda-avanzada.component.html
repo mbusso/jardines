@@ -1,0 +1,10 @@
+<div class="container">
+    <h3>Filtros</h3>
+    <div class="row" *ngFor="let filtro of filtros">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" (change)="updateResultados()" [(ngModel)]="filtro.value">{{filtro.nombre}}
+            </label>
+        </div>
+    </div>
+</div>

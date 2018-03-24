@@ -9,3 +9,8 @@ interface Jardin {
   nombre: string,
   direccion: string
 }
+
+interface Filtro {
+  nombre: string,
+  value: boolean
+}
